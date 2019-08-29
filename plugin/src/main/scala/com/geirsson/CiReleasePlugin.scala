@@ -49,7 +49,7 @@ object CiReleasePlugin extends AutoPlugin {
       s"unzip gpg.zip".!
       "gpg --import gpg.key".!
     } else {
-      (s"echo $secret" #| "base64 --decode" #| "gpg --import").!
+      (s"echo \"$secret\"" #| "base64 --decode" #| "gpg --import").!
     }
   }
 
